@@ -25,7 +25,7 @@ class CirclePainter extends CustomPainter {
       this.progressColor}) {
     _paint = Paint()
       ..color = Colors.white
-      ..strokeWidth = 25.0
+      ..strokeWidth = 15.0
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
   }
