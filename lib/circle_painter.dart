@@ -25,9 +25,10 @@ class CirclePainter extends CustomPainter {
       this.progressColor}) {
     _paint = Paint()
       ..color = Colors.white
-      ..strokeWidth = 15.0
+      ..strokeWidth = 12.0
       ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
+      ..strokeCap = StrokeCap.round
+      ..isAntiAlias = true;
   }
 
   /// The [paint] method is called whenever the custom object needs to be repainted.
