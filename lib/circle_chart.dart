@@ -33,7 +33,7 @@ class CircleChart extends StatefulWidget {
     this.width = 128,
     this.height = 128,
   }) {
-    assert(progressNumber > 0 && maxNumber > 0 && progressNumber < maxNumber);
+    assert(progressNumber > 0 && maxNumber > 0 && progressNumber <= maxNumber);
   }
 
   @override
@@ -106,10 +106,10 @@ class CircleChartState extends State<CircleChart> with SingleTickerProviderState
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.bottomCenter,
-                child: rateView,
-              ),
+              // Container(
+              //   alignment: Alignment.bottomCenter,
+              //   child: rateView,
+              // ),
             ],
           ),
         ),

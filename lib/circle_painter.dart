@@ -25,7 +25,7 @@ class CirclePainter extends CustomPainter {
       this.progressColor}) {
     _paint = Paint()
       ..color = Colors.white
-      ..strokeWidth = 10.0
+      ..strokeWidth = 25.0
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
   }
@@ -33,10 +33,22 @@ class CirclePainter extends CustomPainter {
   /// The [paint] method is called whenever the custom object needs to be repainted.
   /// This method make actual painting according to given values.
   void paint(Canvas canvas, Size size) {
+    var rect = Offset.zero & size;
     _paint.color = backgroundColor ?? Colors.black12;
     canvas.drawArc(Offset.zero & size, -math.pi * 1.5 + math.pi / 4, (3 * math.pi) / 2, false, _paint);
 
-    _paint.color = progressColor ?? Colors.blue;
+    _paint.color = progressColor ?? Colors.black;
+    _paint.shader = LinearGradient(stops: [
+      0.1,
+      0.4,
+      0.6,
+      0.8
+    ], colors: [
+      Color(0xFF1378D7),
+      Color(0xFF3C54B3),
+      Color(0xFF474AA9),
+      Color(0xFF652F8F)
+    ]).createShader(rect);
 
     double progressRadians = ((progressNumber / maxNumber) * (3 * math.pi / 2) * (-animation.value));
     double startAngle = (-math.pi * 1.5 + math.pi / 4);
